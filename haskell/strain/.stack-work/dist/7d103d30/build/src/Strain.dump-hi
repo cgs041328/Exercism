@@ -1,0 +1,63 @@
+
+==================== FINAL INTERFACE ====================
+2018-11-26 08:48:24.0624222 UTC
+
+interface strain-0.1.0.3-DrgffGyJ0siK7P4NMtc41O:Strain 8043
+  interface hash: 995181ed69e395ccbc050a0e20dc2972
+  ABI hash: 3f555e788a9a94513beb67d4782698e5
+  export-list hash: 40f7a87ab610857f4c4e574fd9b0055e
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 603d06fca532e82c123b2b38a3fd6404
+  opt_hash: 14e536840aca4e889cad654e6f9b79c1
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Strain.discard
+  Strain.keep
+module dependencies:
+package dependencies: base-4.11.1.0* ghc-prim-0.5.2.0
+                      integer-gmp-1.0.2.0
+orphans: base-4.11.1.0:GHC.Float base-4.11.1.0:GHC.Base
+family instance modules: base-4.11.1.0:Control.Applicative
+                         base-4.11.1.0:Data.Functor.Const
+                         base-4.11.1.0:Data.Functor.Identity base-4.11.1.0:Data.Monoid
+                         base-4.11.1.0:Data.Semigroup.Internal base-4.11.1.0:GHC.Generics
+                         base-4.11.1.0:GHC.IO.Exception
+import  -/  base-4.11.1.0:Prelude aca391812f777207b15d62bb5b9feb63
+9b18f706dc65da41e028a1ab32a622d9
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Strain.$trModule3
+                   Strain.$trModule1) -}
+ca7844099057cfa5034407bc38fa5ad4
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Strain.$trModule2) -}
+710888c087e5ff11c0db22564a3027f3
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Strain"#) -}
+1685feaa7c2dc7743fcc532874a11b3e
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Strain.$trModule4) -}
+e74ca4f801bbd5d9190859330f97289e
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("strain-0.1.0.3-DrgffGyJ0siK7P4NMtc41O"#) -}
+a6ea7f80098609482bd8caedf83fd08b
+  discard :: (a -> GHC.Types.Bool) -> [a] -> [a]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U> -}
+adde3d6e77e1c901afc9550ca477ff0d
+  keep :: (a -> GHC.Types.Bool) -> [a] -> [a]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U> -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
