@@ -1,17 +1,17 @@
 module Bob (responseFor) where
 
 import Data.Char (isAlpha, isSpace, isUpper)
-import Data.List (isPrefixOf, dropWhile)
-import Control.Arrow ((&&&))
+import Data.List (isSuffixOf)
 
 responseFor :: String -> String
 responseFor xs
-  | isSilence xs                  = "Fine. Be that way!"
-  | isYelling xs && isQuestion xs = "Calm down, I know what I'm doing!"
-  | isYelling xs                  = "Whoa, chill out!"
-  | isQuestion xs                 = "Sure."
-  | otherwise                     = "Whatever."
+  | isSilence xs               = "Fine. Be that way!"
+  | isYelling && isQuestion xs = "Calm down, I know what I'm doing!"
+  | isYelling                  = "Whoa, chill out!"
+  | isQuestion xs              = "Sure."
+  | otherwise                  = "Whatever."
     where  isSilence = all isSpace
-           isYelling ys = ((not.null &&& all isUpper) $ filter isAlpha ys) == (True, True)
-           isQuestion = isPrefixOf "?". dropWhile isSpace. reverse
+           isYelling = (not. null) filteredAlpha && all isUpper filteredAlpha
+           filteredAlpha = filter isAlpha xs
+           isQuestion = isSuffixOf "?". filter (not. isSpace)
 
