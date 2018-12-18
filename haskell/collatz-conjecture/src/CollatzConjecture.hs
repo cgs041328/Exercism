@@ -1,12 +1,13 @@
 module CollatzConjecture (collatz) where
     
+
 collatz :: Integer -> Maybe Integer
 collatz n
-    | n >= 1    = Just $ snd $ collatz' n 0
+    | n >= 1    = Just $ fromIntegral $ length $ drop 1 $ takeWhile (>=1) $ iterate step n
     | otherwise = Nothing
 
-collatz' :: Integer -> Integer -> (Integer, Integer)
-collatz' n counter
-  | n == 1 = (n, counter)
-  | even n = collatz' (n `div` 2) (counter + 1)
-  | otherwise = collatz' (n * 3 + 1) (counter + 1)
+step :: Integer -> Integer
+step n
+  | n == 1    = 0
+  | even n    = n `div` 2
+  | otherwise = n * 3 + 1
