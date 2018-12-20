@@ -1,7 +1,7 @@
 module DNA (toRNA) where
 
 toRNA :: String -> Either Char String
-toRNA = sequence.fmap transformNucleotide
+toRNA = mapM transformNucleotide
 
 transformNucleotide :: Char -> Either Char Char
 transformNucleotide c
