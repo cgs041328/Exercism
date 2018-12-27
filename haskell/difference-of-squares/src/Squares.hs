@@ -1,7 +1,7 @@
 module Squares (difference, squareOfSum, sumOfSquares) where
 
 difference :: Integral a => a -> a
-difference n = squareOfSum n - sumOfSquares n
+difference = (-) <*> squareOfSum <$> sumOfSquares
 
 squareOfSum :: Integral a => a -> a
 squareOfSum n = square $ sum [1..n]
