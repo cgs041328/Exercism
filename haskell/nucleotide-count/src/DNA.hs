@@ -1,20 +1,22 @@
 module DNA (nucleotideCounts, Nucleotide(..)) where
 
 import Data.Map (Map, insertWith, fromList)
+import Control.Monad(foldM)
+import Text.Read(readMaybe) 
 
-data Nucleotide = A | C | G | T deriving (Eq, Ord, Show)
+data Nucleotide = A | C | G | T deriving (Eq, Ord, Show, Read, Enum)
 
+instance Bounded (Nucleotide) where
+    minBound = A
+    maxBound = T
 
 nucleotideCounts :: String -> Either String (Map Nucleotide Int)
-nucleotideCounts xs = foldr nucleotideCount (Right initial) xs
-    where initial = fromList [(A,0),(C,0),(G,0),(T,0)]
+nucleotideCounts xs = foldM nucleotideCount initial xs
+    where initial = fromList $ [(n,0) | n <- [minBound..maxBound]]
 
-nucleotideCount ::  Char -> Either String (Map Nucleotide Int) -> Either String (Map Nucleotide Int)
-nucleotideCount c em = case em of
-    Left x -> Left x
-    Right m   | c == 'A'  -> Right $ insertWith (+) A 1 m
-              | c == 'C'  -> Right $ insertWith (+) C 1 m
-              | c == 'G'  -> Right $ insertWith (+) G 1 m
-              | c == 'T'  -> Right $ insertWith (+) T 1 m
-              | otherwise -> Left "Invalid nucleotide."
+nucleotideCount :: Map Nucleotide Int -> Char -> Either String (Map Nucleotide Int)
+nucleotideCount m c = 
+    case readMaybe [c] of
+        Nothing         -> Left "Invalid nucleotide."
+        Just nucleotide -> Right $ insertWith (+) nucleotide 1 m
 
