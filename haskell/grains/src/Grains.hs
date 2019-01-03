@@ -1,13 +1,11 @@
 module Grains (square, total) where
 
-squares :: [Integer]
-squares = iterate (*2) 1
+import Data.Maybe
 
 square :: Integer -> Maybe Integer
 square n
-    | n <= 64 && n > 0 = Just $ squares !! (fromIntegral n - 1)
+    | n <= 64 && n > 0 = Just $ 2 ^ (n - 1)
     | otherwise        = Nothing
 
 total :: Integer
-total = sum $ take 64 squares 
--- I think 2 ^ 64 - 1 is simpler but less readable.
+total = sum $ mapMaybe square [1..64]
