@@ -1,0 +1,4 @@
+resolver: lts-12.4
+
+extra-deps:
+- Stack-0.3.2
