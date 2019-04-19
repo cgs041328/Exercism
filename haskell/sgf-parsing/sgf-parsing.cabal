@@ -1,0 +1,42 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: a86cc3cd449c0d046c8b72de45d4c56d3ea5ab14dc9e9d374d2423ca4bb6aa7a
+
+name:           sgf-parsing
+version:        1.2.0.5
+build-type:     Simple
+
+library
+  exposed-modules:
+      Sgf
+  other-modules:
+      Paths_sgf_parsing
+  hs-source-dirs:
+      src
+  ghc-options: -Wall
+  build-depends:
+      attoparsec
+    , base
+    , containers
+    , text
+  default-language: Haskell2010
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Tests.hs
+  other-modules:
+      Paths_sgf_parsing
+  hs-source-dirs:
+      test
+  build-depends:
+      attoparsec
+    , base
+    , containers
+    , hspec
+    , sgf-parsing
+    , text
+  default-language: Haskell2010
