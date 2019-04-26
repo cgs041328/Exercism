@@ -1,0 +1,46 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 56ed8e0b6244573644b95dde9360b0763580c86d2af951f8ec0b77c9b2f21347
+
+name:           forth
+version:        1.7.0.11
+build-type:     Simple
+
+library
+  exposed-modules:
+      Forth
+  other-modules:
+      Paths_forth
+  hs-source-dirs:
+      src
+  ghc-options: -Wall
+  build-depends:
+      attoparsec
+    , base
+    , containers
+    , deepseq
+    , mtl
+    , text
+  default-language: Haskell2010
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Tests.hs
+  other-modules:
+      Paths_forth
+  hs-source-dirs:
+      test
+  build-depends:
+      attoparsec
+    , base
+    , containers
+    , deepseq
+    , forth
+    , hspec
+    , mtl
+    , text
+  default-language: Haskell2010
